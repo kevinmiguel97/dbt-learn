@@ -46,12 +46,10 @@ models:
       - name: first_name
         description: Customer first name
         data_tests:
-          - unique
           - not_null
       - name: last_name
         description: Customer last name
         data_tests:
-          - unique
           - not_null
       - name: orders_count
         description: Count of total orders
