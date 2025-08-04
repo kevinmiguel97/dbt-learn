@@ -39,3 +39,21 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+
+  - name: test_table
+    description: One record per customer aggregating number of orders
+    columns:
+      - name: first_name
+        description: Customer first name
+        data_tests:
+          - unique
+          - not_null
+      - name: last_name
+        description: Customer last name
+        data_tests:
+          - unique
+          - not_null
+      - name: orders_count
+        description: Count of total orders
+        data_tests:
+          - not_null
