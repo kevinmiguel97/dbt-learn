@@ -1,27 +1,28 @@
 WITH import_orders AS (
     SELECT 
         order_id, 
-        customer_id
+        customer_id, 
+        order_date
     FROM {{ ref('stg_orders') }}
-)
+),
 
-, import_payment AS ( 
+import_payment AS ( 
     SELECT 
         order_id,
-        amount, 
-        status 
+        -- Sum the amount of all successful payments for each order
+        SUM(CASE WHEN status = 'success' THEN amount END) AS amount 
     FROM {{ ref('stg_payment') }}
-)
+    GROUP BY order_id
+),
 
-, final AS (
+final AS (
     SELECT 
         o.order_id, 
-        o.customer_id, 
-        -- Sum the amount of all successful payments for each order
-        SUM (CASE WHEN p.status = 'success' THEN p.amount END) AS amount
+        o.customer_id,
+        o.order_date,
+        COALESCE(p.amount, 0) AS amount
     FROM import_orders AS o
     LEFT JOIN import_payment AS p USING (order_id) 
-    GROUP BY o.order_id, o.customer_id
 )
 
 SELECT * 
