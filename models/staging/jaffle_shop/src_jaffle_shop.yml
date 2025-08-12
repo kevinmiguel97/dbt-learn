@@ -7,9 +7,10 @@ sources:
     schema: jaffle_shop
     tables:
         - name: customers
-          description: One record per customer.
+          description: Raw customers data. One record per customer.
           columns: 
             - name: id
+              description: Primary key for customers data
               tests: 
                 - unique
                 - not_null
