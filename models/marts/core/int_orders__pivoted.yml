@@ -1,0 +1,14 @@
+version: 2 
+
+models:
+  - name: int_orders__pivoted
+    description: Pivot table for order totals by payment mehthod 
+    columns:
+      - name: order_id 
+        tests:
+          - not_null
+          - unique
+      - name: bank_transfer_amount 
+      - name: coupon_amount 
+      - name: credit_card_amount 
+      - name: gift_card_amount 
