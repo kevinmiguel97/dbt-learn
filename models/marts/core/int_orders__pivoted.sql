@@ -1,4 +1,8 @@
-{%- set payment_methods = ['bank_transfer', 'coupon', 'credit_card', 'gift_card'] -%}
+-- {%- set payment_methods = ['bank_transfer', 'coupon', 'credit_card', 'gift_card'] -%}
+{%- set payment_methods = dbt_utils.get_column_values(
+    table=ref('stg_payment'),
+    column='payment_method'
+) -%} -- Making it dynamic 
 
 with import_payments AS (
     SELECT *
