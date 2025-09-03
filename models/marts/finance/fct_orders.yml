@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: Order level detail 
+    columns:
+      - name: order_id
+        description: Unique order id
+      - name: customer_id
+        description: Unique customer id
+      - name: order_date
+        description: Date in which the order was received
+      - name: amount
+        description:  Total order amount
+
+
+      

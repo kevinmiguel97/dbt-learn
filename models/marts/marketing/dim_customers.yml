@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: One record per customer
+    columns:
+      - name: customer_id
+        description: Primary key
+        data_tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: Customer first name
+      - name: last_name
+        description: Customer last name
+      - name: first_order_date
+        description: Date of the first order placed. NULL when a customer has not yet placed an order.
+      - name: most_recent_order_date
+        description: Date of the most recent order placed NULL when a customer has not yet placed an order.
+      - name: number_of_orders
+        description: Number of orders placed by the customer 
+      - name: lifetime_value
+        description: Total value of the historic orders placed by the customer
+
