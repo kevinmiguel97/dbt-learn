@@ -1,0 +1,10 @@
+macros:
+  - name: cents_to_dollars 
+    description: Macro that converts a column with cents values into dollars 
+    arguments:
+      - name: column_name
+        type: string
+        description: Name of the column containing cents that you want to convert to dollars 
+      - name: decimals
+        type: integer
+        description: Number of decimals to round the conversion 
