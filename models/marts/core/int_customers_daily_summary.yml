@@ -1,0 +1,11 @@
+version: 2 
+
+models:
+  - name: int_customers_daily_summary
+    description: Summary of the number of orders made by customer by day
+    columns:
+      - name: customer_id 
+        tests:
+          - not_null
+      - name: order_id 
+      - name: primary_key  
